@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voiture Page</title>
+</head>
+
+<style>
+
+</style>
+<body>
+<h1>List Voitures</h1>
+<a href="{{ path("add-voiture") }}">Add</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Serie</th>
+        <th>Date M C</th>
+        <th>Model</th>
+    </tr>
+    <tr>
+        {% for v in listVoiture %}
+            <td>{{ v.id }}</td>
+            <td>{{ v.serie }}</td>
+            <td>{{ v.DateMiseCirculation | date }}</td>
+            <td>{{ v.modele }}</td>
+            <td><a href="{{ path("voitureDelete",{'id':v.id}) }}">Delete</a></td>
+            <td><a href="{{ path("voitureUpdate",{'id':v.id}) }}">Update</a></td>
+        {% endfor %}
+    </tr>
+</table>
+</body>
+</html>
